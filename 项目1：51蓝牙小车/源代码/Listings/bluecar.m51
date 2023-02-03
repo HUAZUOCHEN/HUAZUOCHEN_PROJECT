@@ -1,0 +1,219 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        02/07/2021  16:12:23  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\SOFTWARE\KEIL\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\bluecar PRINT (.\Listings\bluecar.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  D:\SOFTWARE\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\SOFTWARE\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  .\Objects\bluecar (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0005H     UNIT         _DATA_GROUP_
+            DATA    000DH     0001H     UNIT         ?DT?MAIN
+            IDATA   000EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0019H     UNIT         ?PR?UART_INIT?MAIN
+            CODE    001CH     0006H     UNIT         ?PR?_UART_TX_BYTE?MAIN
+                    0022H     0001H                  *** GAP ***
+            CODE    0023H     0003H     ABSOLUTE     
+            CODE    0026H     008EH     UNIT         ?PR?MAIN?MAIN
+            CODE    00B4H     0055H     UNIT         ?PR?UART_TIMER?MAIN
+            CODE    0109H     0028H     UNIT         ?PR?_UART_TX_STRING?MAIN
+            CODE    0131H     0022H     UNIT         ?PR?_DELAYMS?MAIN
+            CODE    0153H     0019H     UNIT         ?C?LIB_CODE
+            CODE    016CH     0016H     UNIT         ?CO?MAIN
+            CODE    0182H     000FH     UNIT         ?PR?_DELAYUS?MAIN
+            CODE    0191H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\bluecar (MAIN)
+
+
+SEGMENT                            DATA_GROUP 
+  +--> CALLED SEGMENT            START    LENGTH
+------------------------------------------------
+?PR?UART_TIMER?MAIN              -----    -----
+  +--> ?PR?_UART_TX_BYTE?MAIN
+  +--> ?PR?_DELAYMS?MAIN
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                    -----    -----
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                    0008H    0002H
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/07/2021  16:12:23  PAGE 2
+
+
+  +--> ?PR?UART_INIT?MAIN
+  +--> ?PR?_DELAYMS?MAIN
+  +--> ?CO?MAIN
+  +--> ?PR?_UART_TX_STRING?MAIN
+  +--> ?PR?_DELAYUS?MAIN
+
+?PR?_UART_TX_STRING?MAIN         000AH    0003H
+  +--> ?PR?_UART_TX_BYTE?MAIN
+  +--> ?PR?_DELAYMS?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\bluecar (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  C:0109H         PUBLIC        _uart_tx_string
+  D:00A8H         PUBLIC        IE
+  B:00A8H.4       PUBLIC        ES
+  D:00B8H         PUBLIC        IP
+  B:0098H.0       PUBLIC        RI
+  B:0098H.1       PUBLIC        TI
+  C:001CH         PUBLIC        _uart_tx_byte
+  C:0026H         PUBLIC        main
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  D:000DH         PUBLIC        rec
+  C:00B4H         PUBLIC        uart_timer
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  C:0135H         PUBLIC        _Delayms
+  C:0003H         PUBLIC        uart_init
+  B:0088H.6       PUBLIC        TR1
+  C:0186H         PUBLIC        _Delayus
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        v
+  -------         ENDDO         
+  C:0026H         LINE#         36
+  C:0026H         LINE#         37
+  C:0026H         LINE#         38
+  C:002CH         LINE#         39
+  C:002FH         LINE#         40
+  C:0032H         LINE#         41
+  C:0038H         LINE#         42
+  C:0041H         LINE#         43
+  C:0041H         LINE#         44
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/07/2021  16:12:23  PAGE 3
+
+
+  C:0041H         LINE#         45
+  C:0044H         LINE#         46
+  C:0059H         LINE#         47
+  C:0059H         LINE#         48
+  C:0066H         LINE#         49
+  C:0077H         LINE#         50
+  C:0084H         LINE#         51
+  C:0091H         LINE#         52
+  C:00A2H         LINE#         53
+  -------         ENDPROC       MAIN
+  -------         PROC          UART_TIMER
+  C:00B4H         LINE#         61
+  C:00D1H         LINE#         63
+  C:00D4H         LINE#         64
+  C:00D4H         LINE#         65
+  C:00D6H         LINE#         66
+  C:00D9H         LINE#         67
+  C:00DEH         LINE#         68
+  C:00E1H         LINE#         69
+  C:00E6H         LINE#         70
+  C:00E9H         LINE#         71
+  C:00EEH         LINE#         72
+  C:00EEH         LINE#         73
+  -------         ENDPROC       UART_TIMER
+  -------         PROC          UART_INIT
+  C:0003H         LINE#         80
+  C:0003H         LINE#         81
+  C:0003H         LINE#         82
+  C:0006H         LINE#         83
+  C:0009H         LINE#         84
+  C:000CH         LINE#         85
+  C:000FH         LINE#         86
+  C:0011H         LINE#         87
+  C:0014H         LINE#         88
+  C:0017H         LINE#         89
+  C:0019H         LINE#         90
+  C:001BH         LINE#         91
+  -------         ENDPROC       UART_INIT
+  -------         PROC          _UART_TX_BYTE
+  D:0007H         SYMBOL        str
+  C:001CH         LINE#         96
+  C:001CH         LINE#         97
+  C:001CH         LINE#         98
+  C:001EH         LINE#         99
+  C:0021H         LINE#         100
+  -------         ENDPROC       _UART_TX_BYTE
+  -------         PROC          _UART_TX_STRING
+  D:000AH         SYMBOL        str
+  C:0109H         LINE#         105
+  C:010FH         LINE#         106
+  C:010FH         LINE#         107
+  C:011AH         LINE#         108
+  C:011AH         LINE#         109
+  C:012BH         LINE#         110
+  C:012EH         LINE#         111
+  C:0130H         LINE#         112
+  -------         ENDPROC       _UART_TX_STRING
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/07/2021  16:12:23  PAGE 4
+
+
+  C:0131H         SYMBOL        L?0041
+  -------         PROC          L?0040
+  -------         ENDPROC       L?0040
+  C:0131H         SYMBOL        L?0041
+  -------         PROC          _DELAYMS
+  D:0006H         SYMBOL        n
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0006H         SYMBOL        j
+  -------         ENDDO         
+  C:0135H         LINE#         117
+  C:0135H         LINE#         118
+  C:0135H         LINE#         120
+  C:013EH         LINE#         121
+  C:0152H         LINE#         122
+  -------         ENDPROC       _DELAYMS
+  C:0182H         SYMBOL        L?0039
+  -------         PROC          L?0038
+  -------         ENDPROC       L?0038
+  C:0182H         SYMBOL        L?0039
+  -------         PROC          _DELAYUS
+  D:0006H         SYMBOL        n
+  C:0186H         LINE#         123
+  C:0186H         LINE#         124
+  C:0186H         LINE#         125
+  C:0190H         LINE#         126
+  -------         ENDPROC       _DELAYUS
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        ?C?CLDPTR
+  C:0153H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+Program Size: data=15.0 xdata=0 code=412
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
